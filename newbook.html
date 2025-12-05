@@ -81,23 +81,132 @@
       </div>
     </nav>
     <!-- MAIN CONTENT -->
-    <main class="container mt-3">
-      <h1>Nuovo Libro</h1>
+    <main class="container">
+      <h1 class="h2 my-4">Nuovo Libro</h1>
 
-      <div class="row">
-        <div class="col-6">Nome</div>
-        <div class="col-6">Cognome</div>
-        <div class="col-12">Titolo</div>
-        <div class="col-md-4">Genere</div>
-        <div class="col-md-4">Anno di Pubblicazione</div>
-        <div class="col-md-4">ISBN#</div>
-      </div>
-      <div><hr /></div>
-      <div class="row">
-        <div class="col">TEXT AREA</div>
-        <div class="col">CHECKBOX</div>
-        <div class="col">SUBMIT</div>
-      </div>
+      <form
+        action="https://learning.tizianonicolai.com/request-catcher/"
+        method="POST"
+        class="row g-3"
+      >
+        <div class="col-6">
+          <label for="inputAutorName" class="form-label">Nome Autore</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAutorName"
+            placeholder="Inserisci il nome dell'autore"
+            aria-label="Inserisci il nome dell'autore del libro"
+            required
+          />
+        </div>
+
+        <div class="col-6">
+          <label for="inputAutorSurname" class="form-label"
+            >Cognome Autore</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="inputAutorSurname"
+            placeholder="Inserisci il cognome dell'autore"
+            aria-label="Inserisci il cognome dell'autore del libro"
+            required
+          />
+        </div>
+
+        <div class="col-12">
+          <label for="inputTitleBook" class="form-label">Titolo</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputTitleBook"
+            placeholder="Inserisci il titolo del libro"
+            aria-label="Inserisci il titolo del libro"
+            required
+          />
+          <div class="form-text" id="basic-addon4">
+            Titolo versione italiana
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="selectBookGenre" class="form-label">Genere</label>
+          <select
+            id="selectBookGenre"
+            class="form-select"
+            aria-label="Genere Libro"
+            required
+          >
+            <option value="">Scegli il genere</option>
+            <option value="narrativo">Narrativo</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="giallo">Giallo</option>
+            <option value="romance">Romance</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label for="inputPublicationYear" class="form-label"
+            >Anno di Pubblicazione</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="inputPublicationYear"
+            placeholder="Inserisci l'anno"
+            aria-label="Inserisci l'anno di pubblicazione del libro"
+            required
+          />
+        </div>
+
+        <div class="col-md-4">
+          <label for="inputISBNCode" class="form-label">ISBN#</label>
+          <div class="input-group">
+            <span class="input-group-text" id="addon-wrapping">#</span>
+            <input
+              id="inputISBNCode"
+              type="text"
+              class="form-control"
+              placeholder="Inserisci il codice ISBN#"
+              aria-label="Inserisci il codice ISBN# del libro"
+              aria-describedby="addon-wrapping"
+              required
+            />
+          </div>
+        </div>
+
+        <div><hr /></div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="textareaNote" class="form-label">Note</label>
+            <textarea
+              class="form-control"
+              id="textareaNote"
+              rows="3"
+              placeholder="Inserisci eventuali note sul libro"
+              aria-label="Inserisci eventuali note sul libro"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-12">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="checkDigital"
+          />
+          <label class="form-check-label" for="checkDigital">
+            Disponibile anche in digitale
+          </label>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary mt-3">
+            Aggiungi Libro
+          </button>
+        </div>
+      </form>
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
