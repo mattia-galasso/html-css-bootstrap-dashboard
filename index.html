@@ -88,9 +88,15 @@
         <div class="col-12 col-lg-9">
           <div class="d-flex justify-content-between align-item-center">
             <h1 class="fs-3">Catalogo Libri</h1>
-            <a href="./newbook.html" type="button" class="btn btn-primary">
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
               Aggiungi Libro
-            </a>
+            </button>
           </div>
 
           <!-- TABLE -->
@@ -449,8 +455,9 @@
           </div>
         </div>
 
-        <!--\ TODO -->
+        <!-- FAQ AND TODO SECTION -->
         <div class="col-lg-3">
+          <!--\ TODO -->
           <div class="card">
             <h2 class="card-header fs-3">Todo</h2>
             <div class="card-body">
@@ -665,11 +672,193 @@
       </div>
     </div>
 
+    <!-- OFFCANVAS -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title col-9" id="offcanvasExampleLabel">
+          Nuovo Libro
+        </h5>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <a
+            href="./newbook.html"
+            type="button"
+            class="btn btn-outline-secondary"
+          >
+            <i class="bi bi-arrows-fullscreen"></i>
+          </a>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div class="offcanvas-body">
+        <form
+          action="https://learning.tizianonicolai.com/request-catcher/"
+          method="POST"
+          class="row g-2 needs-validation"
+          novalidate
+        >
+          <div class="col-12">
+            <label for="inputAutorName" class="form-label">Nome Autore</label>
+            <input
+              name="nomeautore"
+              type="text"
+              class="form-control"
+              id="inputAutorName"
+              placeholder="Inserisci il nome dell'autore"
+              aria-label="Inserisci il nome dell'autore del libro"
+              required
+            />
+            <div class="invalid-feedback">Per favore compila questo campo.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="inputAutorSurname" class="form-label"
+              >Cognome Autore</label
+            >
+            <input
+              name="cognomeautore"
+              type="text"
+              class="form-control"
+              id="inputAutorSurname"
+              placeholder="Inserisci il cognome dell'autore"
+              aria-label="Inserisci il cognome dell'autore del libro"
+              required
+            />
+            <div class="invalid-feedback">Per favore compila questo campo.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="inputTitleBook" class="form-label">Titolo</label>
+            <input
+              name="titololibro"
+              type="text"
+              class="form-control"
+              id="inputTitleBook"
+              placeholder="Inserisci il titolo del libro"
+              aria-label="Inserisci il titolo del libro"
+              required
+            />
+            <div class="form-text" id="basic-addon4">
+              Titolo versione italiana
+            </div>
+            <div class="invalid-feedback">Per favore compila questo campo.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="selectBookGenre" class="form-label">Genere</label>
+            <select
+              name="generelibro"
+              id="selectBookGenre"
+              class="form-select"
+              aria-label="Genere Libro"
+              required
+            >
+              <option value="">Scegli il genere</option>
+              <option value="narrativo">Narrativo</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="giallo">Giallo</option>
+              <option value="romance">Romance</option>
+            </select>
+            <div class="invalid-feedback">
+              Per favore inserisci un genere valido.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="inputPublicationYear" class="form-label"
+              >Anno di Pubblicazione</label
+            >
+            <input
+              name="annolibro"
+              type="number"
+              class="form-control"
+              id="inputPublicationYear"
+              placeholder="Inserisci l'anno"
+              aria-label="Inserisci l'anno di pubblicazione del libro"
+              required
+            />
+            <div class="invalid-feedback">Per favore compila questo campo.</div>
+          </div>
+
+          <div class="col-12">
+            <label for="inputISBNCode" class="form-label">ISBN#</label>
+            <div class="input-group">
+              <span class="input-group-text" id="addon-wrapping">#</span>
+              <input
+                name="isbnlibro"
+                id="inputISBNCode"
+                type="text"
+                class="form-control"
+                placeholder="Inserisci il codice ISBN#"
+                aria-label="Inserisci il codice ISBN# del libro"
+                aria-describedby="addon-wrapping"
+                required
+              />
+            </div>
+            <div class="invalid-feedback">Per favore compila questo campo.</div>
+          </div>
+
+          <div><hr /></div>
+
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="textareaNote" class="form-label">Note</label>
+              <textarea
+                name="notelibro"
+                class="form-control"
+                id="textareaNote"
+                rows="3"
+                placeholder="Inserisci eventuali note sul libro"
+                aria-label="Inserisci eventuali note sul libro"
+              ></textarea>
+            </div>
+          </div>
+          <div class="col-12">
+            <input
+              name="librodigitale"
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="checkDigital"
+            />
+            <label class="form-check-label" for="checkDigital">
+              Disponibile anche in digitale
+            </label>
+          </div>
+          <div
+            class="col-12 d-flex justify-content-center align-item-center gap-3"
+          >
+            <button type="submit" class="btn btn-primary mt-3">
+              Aggiungi Libro
+            </button>
+            <button type="reset" class="btn btn-danger mt-3">
+              Pulisci Campi
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- SCRIPT BOOTSTRAP -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+    <!-- SCRIPT EDIT/DELETE MODAL -->
     <script>
       const exampleModal = document.getElementById("editmodal");
       if (exampleModal) {
@@ -705,6 +894,33 @@
           modalBody.innerHTML = `Sei sicuro di voler rimuovere <b>${recipient}</b> dalla lista?`;
         });
       }
+    </script>
+
+    <!-- SCRIPT FORM VALIDATOR -->
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
     </script>
   </body>
 </html>
