@@ -87,7 +87,8 @@
       <form
         action="https://learning.tizianonicolai.com/request-catcher/"
         method="POST"
-        class="row g-3"
+        class="row g-3 needs-validation"
+        novalidate
       >
         <div class="col-6">
           <label for="inputAutorName" class="form-label">Nome Autore</label>
@@ -99,6 +100,7 @@
             aria-label="Inserisci il nome dell'autore del libro"
             required
           />
+          <div class="invalid-feedback">Per favore compila questo campo.</div>
         </div>
 
         <div class="col-6">
@@ -113,6 +115,7 @@
             aria-label="Inserisci il cognome dell'autore del libro"
             required
           />
+          <div class="invalid-feedback">Per favore compila questo campo.</div>
         </div>
 
         <div class="col-12">
@@ -128,6 +131,7 @@
           <div class="form-text" id="basic-addon4">
             Titolo versione italiana
           </div>
+          <div class="invalid-feedback">Per favore compila questo campo.</div>
         </div>
 
         <div class="col-md-4">
@@ -144,6 +148,9 @@
             <option value="giallo">Giallo</option>
             <option value="romance">Romance</option>
           </select>
+          <div class="invalid-feedback">
+            Per favore inserisci un genere valido.
+          </div>
         </div>
 
         <div class="col-md-4">
@@ -158,6 +165,7 @@
             aria-label="Inserisci l'anno di pubblicazione del libro"
             required
           />
+          <div class="invalid-feedback">Per favore compila questo campo.</div>
         </div>
 
         <div class="col-md-4">
@@ -174,6 +182,7 @@
               required
             />
           </div>
+          <div class="invalid-feedback">Per favore compila questo campo.</div>
         </div>
 
         <div><hr /></div>
@@ -201,9 +210,12 @@
             Disponibile anche in digitale
           </label>
         </div>
-        <div class="col-12">
+        <div class="col-12 d-flex gap-3">
           <button type="submit" class="btn btn-primary mt-3">
             Aggiungi Libro
+          </button>
+          <button type="reset" class="btn btn-danger mt-3">
+            Pulisci Campi
           </button>
         </div>
       </form>
@@ -213,5 +225,30 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
